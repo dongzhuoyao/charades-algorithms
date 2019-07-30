@@ -6,9 +6,9 @@ import os
 def parse():
     print('parsing arguments')
     parser = argparse.ArgumentParser(description='PyTorch Charades Training')
-    parser.add_argument('--data', metavar='DIR', default='/scratch/gsigurds/Charades_v1_rgb/',
+    parser.add_argument('--data', metavar='DIR', default='./Charades_v1_rgb/',
                         help='path to dataset')
-    parser.add_argument('--dataset', metavar='DIR', default='fake',
+    parser.add_argument('--dataset', metavar='DIR', default='charadesrgb',
                         help='name of dataset under datasets/')
     parser.add_argument('--train-file', default='./Charades_v1_train.csv', type=str)
     parser.add_argument('--val-file', default='./Charades_v1_test.csv', type=str)

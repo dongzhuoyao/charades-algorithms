@@ -165,17 +165,18 @@ class Trainer():
 
         end = time.time()
         for i, (input, target, meta) in enumerate(loader):
-            target = target.long().cuda(async=True)
+            target = target.long().cuda(async=True)#torch.Size([25, 157])
             assert target[0,:].eq(target[1,:]).all(), "val_video not synced"
-            input_var = torch.autograd.Variable(input.cuda(), volatile=True)
+            input_var = torch.autograd.Variable(input.cuda(), volatile=True)#torch.Size([25, 3, 224, 224])
             output = model(input_var)
-            output = torch.nn.Softmax(dim=1)(output)
+            import ipdb;ipdb.set_trace()
+            output = torch.nn.Softmax(dim=1)(output)#torch.Size([25, 157])
 
             # store predictions
             output_video = output.mean(dim=0)
             outputs.append(output_video.data.cpu().numpy())
             gts.append(target[0,:])
-            ids.append(meta['id'][0])
+            ids.append(meta['id'][0])#why are you sure first id means the whole batch?
             batch_time.update(time.time() - end)
             end = time.time()
 

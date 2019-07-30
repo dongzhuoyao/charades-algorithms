@@ -38,7 +38,7 @@ def main():
     train_loader, val_loader, valvideo_loader = get_dataset(opt)
 
     if opt.evaluate:
-        trainer.validate(val_loader, model, criterion, -1, opt)
+        #trainer.validate(val_loader, model, criterion, -1, opt)
         trainer.validate_video(valvideo_loader, model, -1, opt)
         return
 

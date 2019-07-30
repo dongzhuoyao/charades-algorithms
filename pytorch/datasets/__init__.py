@@ -27,7 +27,7 @@ def get_dataset(args):
         num_workers=args.workers, pin_memory=True)
 
     valvideo_loader = torch.utils.data.DataLoader(
-        valvideo_dataset, batch_size=25, shuffle=False,
+        valvideo_dataset, batch_size=23, shuffle=False,
         num_workers=args.workers, pin_memory=True)
 
     return train_loader, val_loader, valvideo_loader
